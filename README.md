@@ -53,8 +53,7 @@ Dashboard admin di: `http://127.0.0.1:8000/admin`| email : admin@exachanger.com 
 
 
 #🐳 Menjalankan Menggunakan Docker
-Requirement
-Install:
+Requirement Install:
 
 1. Docker Desktop
 2. Docker Compose
