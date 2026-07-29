@@ -87,11 +87,8 @@ exachanger/
 │   └── uploads/              # User uploads
 ├── resources/
 │   ├── views/                # Blade templates
-│   │   ├── admin/            # Admin views
-│   │   ├── auth/             # Authentication views
 │   │   ├── components/       # View components
 │   │   ├── layouts/          # Layout templates
-│   │   ├── livewire/         # Livewire views
 │   │   └── exchange/         # Exchange views
 │   ├── css/                  # Source styles
 │   ├── js/                   # Source scripts
