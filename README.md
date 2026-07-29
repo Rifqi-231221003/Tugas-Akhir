@@ -14,7 +14,7 @@ Pastikan sistem Anda memiliki:
 
 Clone Repository
 jalankan di terminal :
-1. git clone https://github.com/username/exachanger.git
+1. git clone https://github.com/Rifqi-231221003/Tugas-Akhir
 2. cd exachanger
 
 Edit file `.env` dan sesuaikan konfigurasi berikut:
