@@ -1,0 +1,21 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Jika URL mengandung /public/, langsung 404
+    RewriteCond %{REQUEST_URI} ^/public/ [NC,OR]
+    RewriteCond %{THE_REQUEST} /public/
+    RewriteRule ^ - [R=404,L]
+    
+    # Redirect semua request ke folder public
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+
+<Files .env>
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files .htaccess>
+    Order allow,deny
+    Deny from all
+</Files>

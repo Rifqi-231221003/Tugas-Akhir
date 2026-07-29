@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exachanger API Documentation</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f7fa; padding: 40px 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .header { background: linear-gradient(135deg, #4f79a7, #3b5f87); color: white; padding: 40px; border-radius: 20px; margin-bottom: 30px; }
+        .header h1 { font-size: 2rem; margin-bottom: 10px; }
+        .header p { opacity: 0.9; }
+        .base-url { background: rgba(255,255,255,0.2); display: inline-block; padding: 8px 16px; border-radius: 30px; font-family: monospace; margin-top: 15px; }
+        .card { background: white; border-radius: 16px; padding: 25px; margin-bottom: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .card h2 { color: #333; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #4f79a7; display: inline-block; }
+        .endpoint { border-bottom: 1px solid #eee; padding: 15px 0; }
+        .endpoint:last-child { border-bottom: none; }
+        .method { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: bold; margin-right: 15px; min-width: 60px; text-align: center; }
+        .method.get { background: #28a745; color: white; }
+        .method.post { background: #007bff; color: white; }
+        .method.put { background: #ffc107; color: #333; }
+        .method.delete { background: #dc3545; color: white; }
+        .path { font-family: monospace; font-size: 14px; font-weight: 600; color: #333; }
+        .description { color: #666; font-size: 14px; margin-top: 8px; margin-left: 75px; }
+        .example { background: #f8f9fa; padding: 10px 15px; border-radius: 8px; font-family: monospace; font-size: 12px; margin-top: 8px; margin-left: 75px; color: #4f79a7; }
+        .badge { display: inline-block; background: #e8f4fd; color: #4f79a7; padding: 2px 8px; border-radius: 12px; font-size: 10px; margin-left: 10px; }
+        .footer { text-align: center; padding: 30px; color: #999; font-size: 14px; }
+        @media (max-width: 768px) {
+            body { padding: 20px; }
+            .header { padding: 25px; }
+            .method { margin-bottom: 5px; }
+            .path { display: block; margin-left: 0; margin-top: 8px; }
+            .description, .example { margin-left: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>⚡ Exachanger API Documentation</h1>
+            <p>RESTful API for Exachanger digital currency exchange platform</p>
+            <div class="base-url">Base URL: https://exachanger.com/api</div>
+        </div>
+
+        <!-- Public Endpoints -->
+        <div class="card">
+            <h2>🔓 Public Endpoints</h2>
+            
+            <div class="endpoint">
+                <span class="method get">GET</span>
+                <span class="path">/exchange-rates</span>
+                <div class="description">Get all exchange rates (all currency pairs)</div>
+                <div class="example">Example: <a href="/api/exchange-rates" target="_blank">/api/exchange-rates</a></div>
+            </div>
+
+            <div class="endpoint">
+                <span class="method get">GET</span>
+                <span class="path">/exchange-rate/{from}/{to}</span>
+                <div class="description">Get specific exchange rate by currency pair</div>
+                <div class="example">Example: <a href="/api/exchange-rate/USDT/USDC" target="_blank">/api/exchange-rate/USDT/USDC</a></div>
+            </div>
+
+            <div class="endpoint">
+                <span class="method get">GET</span>
+                <span class="path">/products</span>
+                <div class="description">Get all active products (AirTM, PayPal, USDT, etc.)</div>
+                <div class="example">Example: <a href="/api/products" target="_blank">/api/products</a></div>
+            </div>
+
+            <div class="endpoint">
+                <span class="method get">GET</span>
+                <span class="path">/blockchains/{productName}</span>
+                <div class="description">Get available blockchains for a crypto product</div>
+                <div class="example">Example: <a href="/api/blockchains/USDT" target="_blank">/api/blockchains/USDT</a></div>
+            </div>
+
+            <div class="endpoint">
+                <span class="method get">GET</span>
+                <span class="path">/payment-methods/{productName}</span>
+                <div class="description">Get payment methods for a product</div>
+                <div class="example">Example: <a href="/api/payment-methods/USDT" target="_blank">/api/payment-methods/USDT</a></div>
+            </div>
+
+            <div class="endpoint">
+                <span class="method post">POST</span>
+                <span class="path">/register</span>
+                <div class="description">Register new user account</div>
+                <div class="example">Body: {"name":"John","email":"john@test.com","password":"123456","password_confirmation":"123456"}</div>
+            </div>
+
+            <div class="endpoint">
+                <span class="method post">POST</span>
+                <span class="path">/login</span>
+                <div class="description">Login user (returns token)</div>
+                <div class="example">Body: {"email":"john@test.com","password":"123456"}</div>
+            </div>
+        </div>
+
+        <!-- Protected Endpoints -->
+        <div class="card">
+            <h2>🔒 Protected Endpoints <span class="badge">Requires Bearer Token</span></h2>
+            
+            <div class="endpoint">
+                <span class="method get">GET</span>
+                <span class="path">/profile</span>
+                <div class="description">Get authenticated user profile</div>
+                <div class="example">Header: Authorization: Bearer {your_token}</div>
+            </div>
+
+            <div class="endpoint">
+                <span class="method put">PUT</span>
+                <span class="path">/profile</span>
+                <div class="description">Update user profile</div>
+                <div class="example">Header: Authorization: Bearer {your_token}</div>
+            </div>
+
+            <div class="endpoint">
+                <span class="method post">POST</span>
+                <span class="path">/logout</span>
+                <div class="description">Logout user (invalidate token)</div>
+                <div class="example">Header: Authorization: Bearer {your_token}</div>
+            </div>
+
+            <div class="endpoint">
+                <span class="method post">POST</span>
+                <span class="path">/transaction/create</span>
+                <div class="description">Create new exchange transaction</div>
+                <div class="example">Header: Authorization: Bearer {your_token}</div>
+            </div>
+
+            <div class="endpoint">
+                <span class="method post">POST</span>
+                <span class="path">/transaction/upload-proof</span>
+                <div class="description">Upload payment proof image</div>
+                <div class="example">Header: Authorization: Bearer {your_token}</div>
+            </div>
+
+            <div class="endpoint">
+                <span class="method get">GET</span>
+                <span class="path">/transaction/{trxId}</span>
+                <div class="description">Track transaction status</div>
+                <div class="example">Example: <a href="/api/transaction/TRX-69E323135EF3B" target="_blank">/api/transaction/TRX-69E323135EF3B</a></div>
+            </div>
+
+            <div class="endpoint">
+                <span class="method get">GET</span>
+                <span class="path">/my-transactions</span>
+                <div class="description">Get all transactions of authenticated user</div>
+                <div class="example">Header: Authorization: Bearer {your_token}</div>
+            </div>
+        </div>
+
+        <!-- Info Card -->
+        <div class="card">
+            <h2>📝 Notes</h2>
+            <ul style="margin-left: 20px; color: #666; line-height: 1.8;">
+                <li>All responses are in JSON format</li>
+                <li>For protected endpoints, add header: <code>Authorization: Bearer {your_token}</code></li>
+                <li>Token obtained from <code>/register</code> or <code>/login</code> response</li>
+                <li>Images are served from <code>/img/product/</code> and <code>/img/blockchain/</code></li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            © 2026 Exachanger API | Version 1.0.0
+        </div>
+    </div>
+</body>
+</html>

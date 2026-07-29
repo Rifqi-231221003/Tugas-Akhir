@@ -1,0 +1,11 @@
+User-agent: *
+Disallow: /login
+Disallow: /api/
+Disallow: /api-docs.html
+Disallow: /public/api/
+Disallow: /public/api-docs.html
+Disallow: /transaction/
+Disallow: /payment/upload
+Disallow: /payment/confirmation/
+
+Sitemap: https://exachanger.com/sitemap.xml
