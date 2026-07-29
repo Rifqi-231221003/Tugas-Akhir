@@ -52,6 +52,19 @@ Website akan berjalan di: `http://127.0.0.1:8000`
 Dashboard admin di: `http://127.0.0.1:8000/admin`| email : admin@exachanger.com | password : 12345678
 
 
+#🐳 Menjalankan Menggunakan Docker
+Requirement
+Install:
+
+1. Docker Desktop
+2. Docker Compose
+
+jalankan di terminal :
+1. git clone https://github.com/Rifqi-231221003/Tugas-Akhir
+2. cd exachanger
+3. docker compose build
+4. docker compose up 
+
 📁 Struktur Proyek
 ```
 exachanger/
@@ -75,28 +88,24 @@ exachanger/
 ├── config/                   # Configuration files
 │   ├── app.php
 │   ├── database.php
-│   ├── midtrans.php
 │   └── filament.php
 ├── database/
-│   ├── migrations/           # Database migrations
-│   ├── seeders/              # Database seeders
-│   └── factories/            # Model factories
+│   └── migrations/           # Database migrations
 ├── public/
 │   ├── css/                  # Compiled styles
 │   ├── js/                   # Compiled scripts
-│   └── uploads/              # User uploads
+│   └── img/                  # Image
 ├── resources/
 │   ├── views/                # Blade templates
-│   │   ├── components/       # View components
-│   │   ├── layouts/          # Layout templates
-│   │   └── exchange/         # Exchange views
+│   │   ├── emails/           # Email views
+│   │   ├── filament/         # Admin views
+│   │   └── layouts/          # Layout templates
 │   ├── css/                  # Source styles
 │   ├── js/                   # Source scripts
 │   └── lang/                 # Language files
 ├── routes/                   # Route definitions
 │   └── web.php               # Web routes
 ├── storage/                  # Storage files
-├── tests/                    # Test files
 ├── .env.example              # Environment template
 ├── artisan                   # Artisan CLI
 ├── composer.json             # PHP dependencies
